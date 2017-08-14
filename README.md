@@ -30,6 +30,17 @@ let containers = [
 DynamicSkeleton.sharedInstance.presentSkeleton(view: self.view, models: containers)
 ```
 
+Objective-C
+```ruby
+UINib *headerView = [UINib nibWithNibName:kMPHSkeletonHeaderView bundle:[self mp_bundle]];
+UINib *rowView = [UINib nibWithNibName:kMPHSkeletonRowView bundle:[self mp_bundle]];
+
+DynamicSkeletonModel *header = [[DynamicSkeletonModel alloc] initWithView:headerView repeating:1 left:0 right:0 top:0 height:94];
+DynamicSkeletonModel *rows = [[DynamicSkeletonModel alloc] initWithView:rowView repeating:0 left:0 right:0 top:94 bottom:0 height:79];
+
+[DynamicSkeleton.sharedInstance presentSkeletonWithView:self.view models:[[NSArray alloc] initWithObjects:header, rows, nil]];
+```
+
 ## Installation
 MPDynamicSkeleton is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
