@@ -32,13 +32,15 @@ DynamicSkeleton.sharedInstance.presentSkeleton(view: self.view, models: containe
 
 Objective-C
 ```ruby
-UINib *headerView = [UINib nibWithNibName:kMPHSkeletonHeaderView bundle:[self mp_bundle]];
-UINib *rowView = [UINib nibWithNibName:kMPHSkeletonRowView bundle:[self mp_bundle]];
+UINib *headerView = [UINib nibWithNibName:@"HeaderView" bundle:[[NSBundle mainBundle] bundleIdentifier]];
+UINib *rowView = [UINib nibWithNibName:@"RowView" bundle:[[NSBundle mainBundle] bundleIdentifier]];
+UINib *exitView = [UINib nibWithNibName:@"ExitView" bundle:[[NSBundle mainBundle] bundleIdentifier]];
 
-DynamicSkeletonModel *header = [[DynamicSkeletonModel alloc] initWithView:headerView repeating:1 left:0 right:0 top:0 height:94];
-DynamicSkeletonModel *rows = [[DynamicSkeletonModel alloc] initWithView:rowView repeating:0 left:0 right:0 top:94 bottom:0 height:79];
+DynamicSkeletonModel *header = [[DynamicSkeletonModel alloc] initWithView:headerView repeating:1 left:0 right:0 top:0 height:82];
+DynamicSkeletonModel *rows = [[DynamicSkeletonModel alloc] initWithView:rowView repeating:0 left:0 right:0 top:82 bottom:50 height:74];
+DynamicSkeletonModel *exit = [[DynamicSkeletonModel alloc] initWithView:rowView repeating:1 left:0 right:0 bottom:0 height:50];
 
-[DynamicSkeleton.sharedInstance presentSkeletonWithView:self.view models:[[NSArray alloc] initWithObjects:header, rows, nil]];
+[DynamicSkeleton.sharedInstance presentSkeletonWithView:self.view models:[[NSArray alloc] initWithObjects:header, rows, exit, nil]];
 ```
 
 ## Installation
