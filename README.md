@@ -12,9 +12,25 @@ A modularized skeleton with gradient animation - iOS (Swift/Objective-C)
 <img src="skeleton.gif" width="300"/>
 
 ## Usage
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-Swift example:
+#### 1. Add pod in Podfile
+
+```ruby
+pod "MPDynamicSkeleton"
+```
+Then run `pod install`
+
+#### 2. Import module in your swift or Objective-C file:
+```ruby
+Swift:
+import DynamicSkeleton
+
+Objective-C:
+@import DynamicSkeleton;
+```
+
+#### 3. Code examples
+Swift:
 
 ```ruby
 let headerView = UINib(nibName: "HeaderView", bundle: Bundle.main)
@@ -47,9 +63,6 @@ DynamicSkeletonModel *exit = [[DynamicSkeletonModel alloc] initWithView:exitView
 MPDynamicSkeleton is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-```ruby
-pod "MPDynamicSkeleton"
-```
 ## Author
 MarceloJoseML, marcelo.jose@mercadolibre.com
 
