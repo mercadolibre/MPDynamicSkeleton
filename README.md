@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/MPDynamicSkeleton.svg?style=flat)](http://cocoapods.org/pods/MPDynamicSkeleton)
 
 ## Description
-A modularized skeleton with gradient animation
+A modularized skeleton with gradient animation - iOS (Swift/Objective-C)
 
 ## Preview
 <img src="skeleton.gif" width="300"/>
