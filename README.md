@@ -14,6 +14,21 @@ A modularized skeleton with gradient animation
 ## Usage
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+Swift example:
+Mark
+let headerView = UINib(nibName: "HeaderView", bundle: Bundle.main)
+let rowView = UINib(nibName: "RowView", bundle: Bundle.main)
+let exitView = UINib(nibName: "ExitView", bundle: Bundle.main)
+
+let containers = [
+    DynamicSkeletonModel(view: headerView, repeating: 1, left: 0, right: 0, top: 0, height: 82),
+    DynamicSkeletonModel(view: rowView, repeating: 0, left: 0, right: 0, top: 82, bottom: 50, height: 74),
+    DynamicSkeletonModel(view: exitView, repeating: 1, left: 0, right: 0, bottom: 0, height: 50)
+]
+
+DynamicSkeleton.sharedInstance.presentSkeleton(view: self.view, models: containers)
+-----
+
 ## Installation
 MPDynamicSkeleton is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
