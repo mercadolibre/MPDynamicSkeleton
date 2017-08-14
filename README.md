@@ -27,7 +27,6 @@ let containers = [
 ]
 
 DynamicSkeleton.sharedInstance.presentSkeleton(view: self.view, models: containers)
------
 
 ## Installation
 MPDynamicSkeleton is available through [CocoaPods](http://cocoapods.org). To install
