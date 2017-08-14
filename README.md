@@ -13,14 +13,14 @@ A modularized skeleton with gradient animation - iOS (Swift/Objective-C)
 
 ## Usage
 
-#### 1. Add pod in Podfile
+#### 1. Import MPDynamicSkeleton in your .Podfile
 
 ```ruby
 pod "MPDynamicSkeleton"
 ```
 Then run `pod install`
 
-#### 2. Import module in your swift or Objective-C file:
+#### 2. Import MPDynamicSkeleton in your swift or Objective-C file:
 ```ruby
 Swift:
 import DynamicSkeleton
