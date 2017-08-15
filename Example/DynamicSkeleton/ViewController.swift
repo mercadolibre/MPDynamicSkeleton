@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import PureLayout
-import DynamicSkeleton
+import MPDynamicSkeleton
 
 class ViewController: UIViewController {
 
@@ -37,10 +36,14 @@ class ViewController: UIViewController {
 
     func createLandingPage() {
         self.view.addSubview(landingView)
-        landingView.autoPinEdge(.top, to: .top, of: self.view, withOffset: 0)
-        landingView.autoPinEdge(.bottom, to: .bottom, of: self.view, withOffset: 0)
-        landingView.autoPinEdge(.left, to: .left, of: self.view, withOffset: 0)
-        landingView.autoPinEdge(.right, to: .right, of: self.view, withOffset: 0)
+        
+        landingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let top = landingView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        let bottom = landingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        let leading = landingView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        let trailing = landingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        NSLayoutConstraint.activate([top, bottom, leading, trailing])
     }
 
     func createSkeletonContainer() {

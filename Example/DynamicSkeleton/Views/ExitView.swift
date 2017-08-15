@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import DynamicSkeleton
-import PureLayout
+import MPDynamicSkeleton
 
 class ExitView: UIView {
 

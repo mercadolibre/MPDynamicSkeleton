@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RowView" customModule="DynamicSkeleton_Example" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RowView" customModule="MPDynamicSkeleton_Example" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-KM-iXX">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-KM-iXX" customClass="SkeletonElementView" customModule="MPDynamicSkeleton">
                     <rect key="frame" x="16" y="12" width="50" height="50"/>
                     <color key="backgroundColor" red="0.93325155973434448" green="0.93338567018508911" blue="0.93322223424911499" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -22,7 +22,7 @@
                         <constraint firstAttribute="width" constant="50" id="syF-FV-rjB"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGa-bw-qo0" customClass="SkeletonElementView" customModule="DynamicSkeleton">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGa-bw-qo0" customClass="SkeletonElementView" customModule="MPDynamicSkeleton">
                     <rect key="frame" x="80" y="24" width="150" height="10"/>
                     <color key="backgroundColor" red="0.93325155969999996" green="0.93338567019999996" blue="0.93322223419999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -30,7 +30,7 @@
                         <constraint firstAttribute="height" constant="10" id="Q6t-Vf-PlQ"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWO-3L-s6k" customClass="SkeletonElementView" customModule="DynamicSkeleton">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWO-3L-s6k" customClass="SkeletonElementView" customModule="MPDynamicSkeleton">
                     <rect key="frame" x="299" y="24" width="60" height="10"/>
                     <color key="backgroundColor" red="0.93325155969999996" green="0.93338567019999996" blue="0.93322223419999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -38,7 +38,7 @@
                         <constraint firstAttribute="height" constant="10" id="sgn-XH-d0C"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0z-2I-J7y" customClass="SkeletonElementView" customModule="DynamicSkeleton">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0z-2I-J7y" customClass="SkeletonElementView" customModule="MPDynamicSkeleton">
                     <rect key="frame" x="319" y="44" width="40" height="10"/>
                     <color key="backgroundColor" red="0.93325155969999996" green="0.93338567019999996" blue="0.93322223419999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>

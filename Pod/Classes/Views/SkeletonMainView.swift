@@ -25,10 +25,13 @@ class SkeletonMainView: UIView {
     }
     
     func setupConstraints(parentView: UIView) {
-        self.autoPinEdge(.top, to: .top, of: parentView, withOffset: 0)
-        self.autoPinEdge(.bottom, to: .bottom, of: parentView, withOffset: 0)
-        self.autoPinEdge(.left, to: .left, of: parentView, withOffset: 0)
-        self.autoPinEdge(.right, to: .right, of: parentView, withOffset: 0)
-        self.layoutSubviews()
+
+        self.translatesAutoresizingMaskIntoConstraints = false
+
+        let top = self.topAnchor.constraint(equalTo: parentView.topAnchor)
+        let bottom = self.bottomAnchor.constraint(equalTo: parentView.bottomAnchor)
+        let leading = self.leadingAnchor.constraint(equalTo: parentView.leadingAnchor)
+        let trailing = self.trailingAnchor.constraint(equalTo: parentView.trailingAnchor)
+        NSLayoutConstraint.activate([top, bottom, leading, trailing])
     }
 }

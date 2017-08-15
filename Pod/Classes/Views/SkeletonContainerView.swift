@@ -30,25 +30,33 @@ class SkeletonContainerView: UIView {
     }
     
     func setupConstraints(model: DynamicSkeletonModel, parentView: UIView) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+
         if let topOffset = model.top {
-            self.autoPinEdge(.top, to: .top, of: parentView, withOffset: CGFloat(topOffset))
+            let top = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: parentView, attribute: .top, multiplier: 1, constant: CGFloat(topOffset))
+            NSLayoutConstraint.activate([top])
         }
         if let bottomOffset = model.bottom {
-            self.autoPinEdge(.bottom, to: .bottom, of: parentView, withOffset: CGFloat(-bottomOffset))
+            let bottom = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: parentView, attribute: .bottom, multiplier: 1, constant: -CGFloat(bottomOffset))
+            NSLayoutConstraint.activate([bottom])
         }
         if let leftOffset = model.left {
-            self.autoPinEdge(.left, to: .left, of: parentView, withOffset: CGFloat(leftOffset))
+            let left = NSLayoutConstraint(item: self, attribute: .left, relatedBy: .equal, toItem: parentView, attribute: .left, multiplier: 1, constant: CGFloat(leftOffset))
+            NSLayoutConstraint.activate([left])
         }
         if let rightOffset = model.right {
-            self.autoPinEdge(.right, to: .right, of: parentView, withOffset: CGFloat(-rightOffset))
+            let right = NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: parentView, attribute: .right, multiplier: 1, constant: CGFloat(rightOffset))
+            NSLayoutConstraint.activate([right])
         }
-        
+
         parentView.layoutSubviews()
     }
     
     func setContainerheight(model: DynamicSkeletonModel) {
         if let offsetHeight = model.height {
-            self.autoSetDimension(.height, toSize: CGFloat(offsetHeight))
+            let hegiht = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: CGFloat(offsetHeight))
+            NSLayoutConstraint.activate([hegiht])
             self.layoutSubviews()
         }
     }
