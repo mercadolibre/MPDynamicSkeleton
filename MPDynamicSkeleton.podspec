@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = "MPDynamicSkeleton"
   s.version          = "0.1.0"
-  s.summary          = "MPDynamicSkeleton - A modularized skeleton with gradient animation"
+  s.summary          = "Mercado Pago skeleton"
   s.homepage         = "https://github.com/mercadolibre/MPDynamicSkeleton"
   s.author           = { "Marcelo José" => "marcelo.jose@mercadolibre.com" }
-  s.description      = "Modularized skeleton made Pod"
+  s.description      = "A modularized skeleton with gradient animation"
 
   s.source           = { :git => "https://github.com/mercadolibre/MPDynamicSkeleton.git", :tag => s.version.to_s}
   s.license          = 'Apache License, Version 2.0'
