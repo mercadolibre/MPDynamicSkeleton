@@ -77,10 +77,13 @@ public class DynamicSkeleton: NSObject {
     public func dismissSkeleton(completion: @escaping () -> Void) {
 
         UIView.animate(withDuration: 0.5, delay: 0.3, options: .curveEaseOut, animations: {
-            self.skeletonMainView.alpha = 0
+            if self.skeletonMainView != nil {
+                self.skeletonMainView.alpha = 0
+            }
         }) { _ in
-            self.skeletonMainView.removeFromSuperview()
-            self.skeletonMainView = nil
+            if self.skeletonMainView != nil {
+                self.skeletonMainView.removeFromSuperview()
+            }
             completion()
         }
     }

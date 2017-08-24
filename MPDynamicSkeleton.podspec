@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MPDynamicSkeleton"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "MPDynamicSkeleton - A modularized skeleton with gradient animation"
   s.homepage         = "https://github.com/mercadolibre/MPDynamicSkeleton"
   s.author           = { "Marcelo José" => "marcelo.jose@mercadolibre.com" }
