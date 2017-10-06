@@ -23,10 +23,10 @@ Then run `pod install`
 #### 2. Import MPDynamicSkeleton in your swift or Objective-C file:
 ```ruby
 Swift:
-import DynamicSkeleton
+import MPDynamicSkeleton
 
 Objective-C:
-@import DynamicSkeleton;
+@import MPDynamicSkeleton;
 ```
 
 #### 3. Code examples
