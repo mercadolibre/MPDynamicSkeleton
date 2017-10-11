@@ -75,7 +75,7 @@ public class DynamicSkeleton: NSObject {
     }
     
     public func dismissSkeleton(completion: @escaping () -> Void) {
-
+        
         UIView.animate(withDuration: 0.5, delay: 0.3, options: .curveEaseOut, animations: {
             if self.skeletonMainView != nil {
                 self.skeletonMainView.alpha = 0
@@ -83,6 +83,7 @@ public class DynamicSkeleton: NSObject {
         }) { _ in
             if self.skeletonMainView != nil {
                 self.skeletonMainView.removeFromSuperview()
+                self.skeletonMainView = nil
             }
             completion()
         }
@@ -110,24 +111,32 @@ public class DynamicSkeleton: NSObject {
         
         let view = model.view.instantiate(withOwner: nil, options: nil).first as! UIView
         let topOffset = CGFloat(model.height! * index)
-
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(view)
-
+        
         let top = NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: containerView, attribute: .top, multiplier: 1, constant: CGFloat(topOffset))
         let left = NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: containerView, attribute: .left, multiplier: 1, constant: 0)
         let right = NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: containerView, attribute: .right, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([top, left, right])
-
+        
         if let offsetHeight = model.height {
             let hegiht = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: CGFloat(offsetHeight))
             NSLayoutConstraint.activate([hegiht])
         }
         
-        for element in view.subviews {
-            if let elementSkeleton = element as? SkeletonElementView {
+        self.findSubViews(view: view);
+    }
+    
+    func findSubViews(view: UIView) {
+        
+        for subview in view.subviews {
+            if let elementSkeleton = subview as? SkeletonElementView {
                 elementSkeleton.setGradientColor()
                 elementSkeleton.slide(direction: .right)
+            }
+            if subview.subviews.count > 0 {
+                findSubViews(view: subview)
             }
         }
     }
