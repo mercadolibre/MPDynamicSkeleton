@@ -83,6 +83,7 @@ public class DynamicSkeleton: NSObject {
         }) { _ in
             if self.skeletonMainView != nil {
                 self.skeletonMainView.removeFromSuperview()
+                self.skeletonMainView = nil
             }
             completion()
         }
