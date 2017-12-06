@@ -14,6 +14,7 @@
 		069153D01F30092000759D86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069153CF1F30092000759D86 /* Images.xcassets */; };
 		069153D71F30169F00759D86 /* ExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069153D61F30169F00759D86 /* ExitView.swift */; };
 		06C019501F33A6E50029DD90 /* ExitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06C0194F1F33A6E50029DD90 /* ExitView.xib */; };
+		06F0BE631FD884040076DD72 /* MPDynamicSkeleton.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 06F0BE621FD884040076DD72 /* MPDynamicSkeleton.podspec */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		975C7757F22370BFC9B91655 /* Pods_MPDynamicSkeleton_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DF0D55232D95453C1B3803 /* Pods_MPDynamicSkeleton_Example.framework */; };
@@ -27,6 +28,7 @@
 		069153CF1F30092000759D86 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		069153D61F30169F00759D86 /* ExitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitView.swift; sourceTree = "<group>"; };
 		06C0194F1F33A6E50029DD90 /* ExitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExitView.xib; sourceTree = "<group>"; };
+		06F0BE621FD884040076DD72 /* MPDynamicSkeleton.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MPDynamicSkeleton.podspec; path = ../MPDynamicSkeleton.podspec; sourceTree = "<group>"; };
 		33DF0D55232D95453C1B3803 /* Pods_MPDynamicSkeleton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MPDynamicSkeleton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D86CB470580B7DADEA94F9 /* Pods-MPDynamicSkeleton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MPDynamicSkeleton_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MPDynamicSkeleton_Example/Pods-MPDynamicSkeleton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4CAD50222FCA3AC658BD7771 /* Pods-MPDynamicSkeleton_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MPDynamicSkeleton_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MPDynamicSkeleton_Example/Pods-MPDynamicSkeleton_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -35,7 +37,6 @@
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62477D68E4452C955EEBC8C4 /* Pods-DynamicSkeleton_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicSkeleton_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicSkeleton_Tests/Pods-DynamicSkeleton_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		771FE86BE72A6CA32B726542 /* DynamicSkeleton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DynamicSkeleton.podspec; path = ../DynamicSkeleton.podspec; sourceTree = "<group>"; };
 		8BA659A0579DB06BFD8EBE67 /* Pods-DynamicSkeleton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicSkeleton_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicSkeleton_Example/Pods-DynamicSkeleton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A7D05B6A2EBAC7388A1023EA /* Pods-DynamicSkeleton_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicSkeleton_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicSkeleton_Example/Pods-DynamicSkeleton_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AFF4C883749466D805173912 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -121,7 +122,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				771FE86BE72A6CA32B726542 /* DynamicSkeleton.podspec */,
+				06F0BE621FD884040076DD72 /* MPDynamicSkeleton.podspec */,
 				AFF4C883749466D805173912 /* README.md */,
 				F825BA09D582D3E9DAD0F3C8 /* LICENSE */,
 			);
@@ -181,13 +182,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = T9VUHG6RU2;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -215,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F0BE631FD884040076DD72 /* MPDynamicSkeleton.podspec in Resources */,
 				062DAEDB1F3A486400BF71D3 /* RowView.xib in Resources */,
 				062DAEDA1F3A486400BF71D3 /* HeaderView.xib in Resources */,
 				069153CE1F30090E00759D86 /* LaunchScreen.xib in Resources */,
@@ -302,14 +304,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -350,14 +358,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -397,7 +411,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.MPDynamicSkeleton-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -415,7 +430,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.MPDynamicSkeleton-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
