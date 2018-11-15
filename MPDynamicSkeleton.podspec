@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MPDynamicSkeleton"
-  s.version          = "0.2.0"
+  s.version          = "0.2.1"
   s.summary          = "Mercado Pago skeleton"
   s.homepage         = "https://github.com/mercadolibre/MPDynamicSkeleton"
   s.author           = { "Marcelo José" => "marcelo.jose@mercadolibre.com" }
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
 
-  s.swift_version = '3.2'
+  s.swift_version = '4'
 end
