@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
 
     func fadeOut(_ duration: TimeInterval = 10.0, delay: TimeInterval = 10.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.alpha = 0.0
         }, completion: completion)
     }
