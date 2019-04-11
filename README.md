@@ -63,6 +63,18 @@ DynamicSkeletonModel *exit = [[DynamicSkeletonModel alloc] initWithView:exitView
 MPDynamicSkeleton is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
+## Collaborating
+Make sure your are using cocoapods 1.6+ for xCode 10 and above
+```bash
+$ edit MPDynamicSkeleton.podspec
+# set the new version
+$ pod lib lint
+
+$ git add . && git commit -m "Release 0.0.1"
+$ git tag '0.0.1'
+$ git push --tags
+```
+
 ## Author
 MarceloJoseML, marcelo.jose@mercadolibre.com
 
