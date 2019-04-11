@@ -19,7 +19,7 @@ public extension CAGradientLayer {
 
     fileprivate static let KSlideAnimationKey = "SlideAnimation"
 
-    public func slide(direction: GradientDirection) {
+    func slide(direction: GradientDirection) {
         let startPointTransition = direction.transition(for: .startPoint)
         let endPointTransition = direction.transition(for: .endPoint)
         
@@ -38,7 +38,7 @@ public extension CAGradientLayer {
         add(animGroup, forKey: CAGradientLayer.KSlideAnimationKey)
     }
 
-    public func stopSliding() {
+    func stopSliding() {
         removeAnimation(forKey: CAGradientLayer.KSlideAnimationKey)
     }
 }
