@@ -1,0 +1,56 @@
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.55.0"
+
+# Disable Fastlane crash reporting because we're using UI.* methods for our custom errors and those aren't Fastlane bugs.
+opt_out_crash_reporting
+
+# Require Fastlane's UI to handle log messages. To be sure which method you should use check: https://github.com/fastlane/fastlane/blob/master/fastlane_core/lib/fastlane_core/ui/interface.rb
+require 'fastlane_core/ui/ui.rb'
+
+before_all do
+	require 'rake'
+	require_relative 'helper/ci_helper.rb'
+end
+
+desc 'Start here, this lane goes through the different ones'
+lane :start_deploy do
+	
+	unless CIHelper::has_deploy_message?
+		UI.message '[!] User did not request a deploy'
+		next
+	end
+
+	deploy_lib
+end
+
+desc 'Deploy to Github And CocoaPods'
+lane :deploy_lib do
+	unless CIHelper::is_running_in_ci?
+		UI.error 'Not running in CI environment. Local run not yet supported'
+	end
+
+	UI.message 'Checking pod version'
+    # All submodules should have the same version, so I take the version from the first module
+    pod_version = CIHelper::spec_version()
+
+	# Checks if all conditions are met in in order to release de library
+	unless CIHelper::can_deploy_library?(pod_version)
+		UI.user_error! 'Fix above errors and try again'
+	end
+	UI.success 'Repo check complete'
+
+	UI.message "Creating release #{pod_version} in GitHub"
+	set_github_release(
+		repository_name: 'mercadolibre/MPDynamicSkeleton',
+		api_token: CIHelper::GITHUB_TOKEN,
+		name: "Release v#{pod_version}",
+		tag_name: "#{pod_version}",
+		description: CIHelper::get_release_notes,
+		commitish: CIHelper::get_base_branch)
+	UI.success 'Release created'
+
+	UI.message 'Publishing pod'
+	pod_push(path: "MPDynamicSkeleton.podspec", allow_warnings: true)
+	UI.success 'Pod published successfully'
+end
