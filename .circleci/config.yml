@@ -1,0 +1,123 @@
+####
+# Default job.
+# This job simply defines the iOS image, some environment variables
+# and stuff that all jobs should have
+##
+default: &defaultJob
+  # Set the xcode version this virtual machine will use
+  macos:
+    xcode: "10.1.0"
+  # We need to set this for RVM.
+  shell: /bin/bash --login
+# Default workflow will run on all branches except releases
+default-workflow: &defaultWorkflow
+  filters:
+    branches:
+      ignore:
+        - /release\/.*$/
+deploy-workflow: &deployWorkflow
+  filters:
+    branches:
+      only:
+        - /release\/.*$/
+
+# Define the jobs we will be using
+version: 2
+jobs:
+  test:
+    <<: *defaultJob
+    steps:
+      - checkout
+      - add_ssh_keys
+      - restore_cache:
+          key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
+      - run:
+          name: Install Bundler
+          command: gem install bundler
+      - run:
+          name: Install Ruby tools
+          command: bundle install --path vendor/bundle
+      - run:
+          name: Deactivate Cocoapods Verbose Logging
+          command: ruby ./scripts/deactivate_verbose_logging.rb
+      - run:
+          name: Install CocoaPods
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
+            bundle exec pod install
+      - save_cache:
+          key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
+          paths:
+            - vendor/bundle
+      - run:
+          name: Run tests on iOS 10.3.1
+          command: ./scripts/run_tests.sh 10.3.1
+      - run:
+          name: Run test on iOS 11.2
+          command: ./scripts/run_tests.sh 11.2
+      - run:
+          name: Run Coverage Report
+          command: ./scripts/run_coverage_report.sh
+  lint:
+    <<: *defaultJob
+    steps:
+      - checkout
+      - add_ssh_keys
+      - restore_cache:
+          key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
+      - run:
+          name: Install Bundler
+          command: gem install bundler
+      - run:
+          name: Install Ruby tools
+          command: bundle install --path vendor/bundle
+      - run:
+          name: Install Uncrustify
+          command: brew install uncrustify
+      - run:
+          name: Deactivate Cocoapods Verbose Logging
+          command: ruby ./scripts/deactivate_verbose_logging.rb
+      - run:
+          name: Install CocoaPods
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
+            bundle exec pod install
+      - run:
+          name: Run Pod Lint
+          command: bundle exec pod lib lint MPDynamicSkeleton.podspec --allow-warnings --sources='https://github.com/CocoaPods/Specs'
+      - run:
+          name: Run Uncrustify
+          command: ./scripts/uncrustify.sh --check --path Example
+  deploy:
+    <<: *defaultJob
+    steps:
+      - checkout
+      - add_ssh_keys
+      - restore_cache:
+          key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
+      - run:
+          name: Install Bundler
+          command: gem install bundler
+      - run:
+          name: Install Ruby tools
+          command: bundle install --path vendor/bundle
+      - run:
+          name: Install CocoaPods
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
+            bundle exec pod install
+      - run:
+          name: Run Deploy
+          command: ./scripts/run_deploy.sh
+
+# Define the full workflow.
+workflows:
+  version: 2
+  test-lint:
+    jobs:
+      - test:
+          <<: *defaultWorkflow
+      - lint:
+          <<: *defaultWorkflow
+      - deploy:
+          <<: *deployWorkflow
