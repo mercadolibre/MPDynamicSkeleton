@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.license          = 'Apache License, Version 2.0'
   s.platform         = :ios, '10.0'
   s.requires_arc     = true
+  s.static_framework = true
 
   s.source_files = 'Pod/Classes/**/*'
 
