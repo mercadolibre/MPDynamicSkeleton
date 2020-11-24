@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MPDynamicSkeleton"
-  s.version          = "0.2.3"
+  s.version          = "0.3.0"
   s.summary          = "Mercado Pago skeleton"
   s.homepage         = "https://github.com/mercadolibre/MPDynamicSkeleton"
   s.author           = { "Marcelo José" => "marcelo.jose@mercadolibre.com" }
@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.license          = 'Apache License, Version 2.0'
   s.platform         = :ios, '10.0'
   s.requires_arc     = true
+  s.static_framework = true
 
   s.source_files = 'Pod/Classes/**/*'
 
