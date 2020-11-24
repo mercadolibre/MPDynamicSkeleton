@@ -108,7 +108,7 @@ jobs:
             bundle exec pod install
       - run:
           name: Run Deploy
-          command: ./scripts/run_deploy.sh
+          command: bundle exec fastlane start_deploy
 
 # Define the full workflow.
 workflows:
