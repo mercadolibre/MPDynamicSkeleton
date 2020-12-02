@@ -33,7 +33,7 @@ jobs:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
       - run:
           name: Install Bundler
-          command: gem install bundler
+          command: sudo gem install bundler
       - run:
           name: Install Ruby tools
           command: bundle install --path vendor/bundle
@@ -67,7 +67,7 @@ jobs:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
       - run:
           name: Install Bundler
-          command: gem install bundler
+          command: sudo gem install bundler
       - run:
           name: Install Ruby tools
           command: bundle install --path vendor/bundle
