@@ -44,7 +44,7 @@ jobs:
           name: Install CocoaPods
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
-            bundle exec pod install --path Example
+            cd Example && bundle exec pod install
       - save_cache:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
           paths:
