@@ -49,15 +49,15 @@ jobs:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
           paths:
             - vendor/bundle
-      - run:
-          name: Run tests on iOS 10.3.1
-          command: ./scripts/run_tests.sh 10.3.1
-      - run:
-          name: Run test on iOS 11.2
-          command: ./scripts/run_tests.sh 11.2
-      - run:
-          name: Run Coverage Report
-          command: ./scripts/run_coverage_report.sh
+      #- run:
+      #    name: Run tests on iOS 10.3.1
+      #    command: ./scripts/run_tests.sh 10.3.1
+      #- run:
+      #    name: Run test on iOS 11.2
+      #    command: ./scripts/run_tests.sh 11.2
+      #- run:
+      #    name: Run Coverage Report
+      #    command: ./scripts/run_coverage_report.sh
   lint:
     <<: *defaultJob
     steps:
