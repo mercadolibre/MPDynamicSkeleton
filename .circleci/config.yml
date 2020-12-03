@@ -81,13 +81,13 @@ jobs:
           name: Install CocoaPods
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
-            bundle exec pod install
+            cd Example bundle exec pod install
       - run:
           name: Run Pod Lint
           command: bundle exec pod lib lint MPDynamicSkeleton.podspec --allow-warnings --sources='https://github.com/CocoaPods/Specs'
-      - run:
-          name: Run Uncrustify
-          command: ./scripts/uncrustify.sh --check --path Example
+      #- run:
+      #    name: Run Uncrustify
+      #    command: ./scripts/uncrustify.sh --check --path Example
   deploy:
     <<: *defaultJob
     steps:
