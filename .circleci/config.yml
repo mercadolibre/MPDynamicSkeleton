@@ -37,9 +37,9 @@ jobs:
       - run:
           name: Install Ruby tools
           command: bundle install --path vendor/bundle
-      - run:
-          name: Deactivate Cocoapods Verbose Logging
-          command: ruby ./scripts/deactivate_verbose_logging.rb
+      #- run:
+      #    name: Deactivate Cocoapods Verbose Logging
+      #    command: ruby ./scripts/deactivate_verbose_logging.rb
       - run:
           name: Install CocoaPods
           command: |
