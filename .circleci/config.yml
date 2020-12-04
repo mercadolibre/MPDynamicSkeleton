@@ -33,31 +33,31 @@ jobs:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
       - run:
           name: Install Bundler
-          command: gem install bundler
+          command: sudo gem install bundler
       - run:
           name: Install Ruby tools
           command: bundle install --path vendor/bundle
-      - run:
-          name: Deactivate Cocoapods Verbose Logging
-          command: ruby ./scripts/deactivate_verbose_logging.rb
+      #- run:
+      #    name: Deactivate Cocoapods Verbose Logging
+      #    command: ruby ./scripts/deactivate_verbose_logging.rb
       - run:
           name: Install CocoaPods
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
-            bundle exec pod install
+            cd Example && bundle exec pod install
       - save_cache:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
           paths:
             - vendor/bundle
-      - run:
-          name: Run tests on iOS 10.3.1
-          command: ./scripts/run_tests.sh 10.3.1
-      - run:
-          name: Run test on iOS 11.2
-          command: ./scripts/run_tests.sh 11.2
-      - run:
-          name: Run Coverage Report
-          command: ./scripts/run_coverage_report.sh
+      #- run:
+      #    name: Run tests on iOS 10.3.1
+      #    command: ./scripts/run_tests.sh 10.3.1
+      #- run:
+      #    name: Run test on iOS 11.2
+      #    command: ./scripts/run_tests.sh 11.2
+      #- run:
+      #    name: Run Coverage Report
+      #    command: ./scripts/run_coverage_report.sh
   lint:
     <<: *defaultJob
     steps:
@@ -67,27 +67,27 @@ jobs:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
       - run:
           name: Install Bundler
-          command: gem install bundler
+          command: sudo gem install bundler
       - run:
           name: Install Ruby tools
           command: bundle install --path vendor/bundle
       - run:
           name: Install Uncrustify
-          command: brew install uncrustify
-      - run:
-          name: Deactivate Cocoapods Verbose Logging
-          command: ruby ./scripts/deactivate_verbose_logging.rb
+          command: brew update && brew install uncrustify
+      #- run:
+      #    name: Deactivate Cocoapods Verbose Logging
+      #    command: ruby ./scripts/deactivate_verbose_logging.rb
       - run:
           name: Install CocoaPods
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
-            bundle exec pod install
+            cd Example bundle exec pod install
       - run:
           name: Run Pod Lint
           command: bundle exec pod lib lint MPDynamicSkeleton.podspec --allow-warnings --sources='https://github.com/CocoaPods/Specs'
-      - run:
-          name: Run Uncrustify
-          command: ./scripts/uncrustify.sh --check --path Example
+      #- run:
+      #    name: Run Uncrustify
+      #    command: ./scripts/uncrustify.sh --check --path Example
   deploy:
     <<: *defaultJob
     steps:
